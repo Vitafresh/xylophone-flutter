@@ -21,6 +21,21 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$noteNum.wav');
   }
 
+  Expanded buildRowKey({int noteNum, Color colorRow})
+  {
+    return
+      Expanded(
+      child: Container(
+        //width: double.infinity,
+        color: colorRow,
+        child: TextButton(
+            onPressed: () {
+              playNote(noteNum);
+            }),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,79 +43,17 @@ class XylophoneApp extends StatelessWidget {
         body: SafeArea(
           child: Column(
             //mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment:CrossAxisAlignment.stretch,
             children: [
-              Expanded(
-                child: Container(
-                  //width: double.infinity,
-                  color: Colors.blue[100],
-                  child: TextButton(
-                      onPressed: () {
-                        playNote(1);
-                      }),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  //width: double.infinity,
-                  color: Colors.blue[300],
-                  child: TextButton(
-                      onPressed: () {
-                        playNote(2);
-                      }),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  //width: double.infinity,
-                  color: Colors.blue[400],
-                  child: TextButton(
-                      onPressed: () {
-                        playNote(3);
-                      }),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  //width: double.infinity,
-                  color: Colors.blue[500],
-                  child: TextButton(
-                      onPressed: () {
-                        playNote(4);
-                      }),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  //width: double.infinity,
-                  color: Colors.blue[600],
-                  child: TextButton(
-                      onPressed: () {
-                        playNote(5);
-                      }),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  //width: double.infinity,
-                  color: Colors.blue[700],
-                  child: TextButton(
-                      onPressed: () {
-                        playNote(6);
-                      }),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  //width: double.infinity,
-                  color: Colors.blue[900],
-                  child: TextButton(
-                      onPressed: () {
-                        playNote(7);
-                      }),
-                ),
-              ),
+              buildRowKey(noteNum: 1, colorRow: Colors.blue[100]),
+              buildRowKey(noteNum: 2, colorRow: Colors.blue[300]),
+              buildRowKey(noteNum: 3, colorRow: Colors.blue[400]),
+              buildRowKey(noteNum: 4, colorRow: Colors.blue[600]),
+              buildRowKey(noteNum: 5, colorRow: Colors.blue[700]),
+              buildRowKey(noteNum: 6, colorRow: Colors.blue[800]),
+              buildRowKey(noteNum: 7, colorRow: Colors.blue[900]),
+
             ],
           ),
         ),
