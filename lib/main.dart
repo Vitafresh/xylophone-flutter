@@ -6,7 +6,7 @@ void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
   AudioPlayer audioPlayer = AudioPlayer();
-  static AudioCache player = AudioCache();
+  final AudioCache player = AudioCache();
 
   play() async {
     int result = await audioPlayer.play('assets/note1.wav', isLocal: true);
@@ -14,6 +14,11 @@ class XylophoneApp extends StatelessWidget {
       // success
       print('Sucess - played!');
     }
+  }
+
+  void playNote(int noteNum){
+    print('Play note $noteNum');
+    player.play('note$noteNum.wav');
   }
 
   @override
@@ -32,8 +37,7 @@ class XylophoneApp extends StatelessWidget {
                   color: Colors.blue[100],
                   child: TextButton(
                       onPressed: () {
-                        print('Audio play');
-                        player.play('note1.wav');
+                        playNote(1);
                       }),
                 ),
               ),
@@ -43,8 +47,7 @@ class XylophoneApp extends StatelessWidget {
                   color: Colors.blue[300],
                   child: TextButton(
                       onPressed: () {
-                        print('Audio play');
-                        player.play('note2.wav');
+                        playNote(2);
                       }),
                 ),
               ),
@@ -54,8 +57,7 @@ class XylophoneApp extends StatelessWidget {
                   color: Colors.blue[400],
                   child: TextButton(
                       onPressed: () {
-                        print('Audio play');
-                        player.play('note3.wav');
+                        playNote(3);
                       }),
                 ),
               ),
@@ -65,8 +67,7 @@ class XylophoneApp extends StatelessWidget {
                   color: Colors.blue[500],
                   child: TextButton(
                       onPressed: () {
-                        print('Audio play');
-                        player.play('note4.wav');
+                        playNote(4);
                       }),
                 ),
               ),
@@ -76,8 +77,7 @@ class XylophoneApp extends StatelessWidget {
                   color: Colors.blue[600],
                   child: TextButton(
                       onPressed: () {
-                        print('Audio play');
-                        player.play('note5.wav');
+                        playNote(5);
                       }),
                 ),
               ),
@@ -87,8 +87,7 @@ class XylophoneApp extends StatelessWidget {
                   color: Colors.blue[700],
                   child: TextButton(
                       onPressed: () {
-                        print('Audio play');
-                        player.play('note6.wav');
+                        playNote(6);
                       }),
                 ),
               ),
@@ -98,8 +97,7 @@ class XylophoneApp extends StatelessWidget {
                   color: Colors.blue[900],
                   child: TextButton(
                       onPressed: () {
-                        print('Audio play');
-                        player.play('note7.wav');
+                        playNote(7);
                       }),
                 ),
               ),
